@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="th" data-myku-demo>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyKU Timetable — ตัวอย่างตารางเรียน</title>
+  <link rel="stylesheet" href="content.css">
+  <style>
+    body { margin: 0; padding: 32px; background: #edf3ef; color: #254635; font: 14px/1.5 system-ui, sans-serif; }
+    main { max-width: 1540px; margin: auto; }
+    .demo-note { margin: 0; color: #6e8375; font-size: 12px; }
+    .demo-top { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; }
+    .demo-top strong { font-size: 18px; }
+    .card { border: 1px solid #d2ded6; border-radius: 8px; padding: 16px; margin: 8px 0; background: #fff; }
+    .demo-list .row { display: flex; gap: 20px; }
+    .demo-list .badge { color: #527766; }
+    .demo-list .cut-word { font-weight: 600; }
+    .demo-tabs { margin: 20px 0 12px; max-width: 650px; }
+    .demo-tabs button:not(.mkt-tab) { border: 1px solid #dce5df; background: #f5f8f6; color: #4b6756; padding: 8px; font: inherit; font-size: 12px; cursor: pointer; }
+    .demo-tabs button.active { background: #0ba678; color: #fff; }
+    .demo-tabs button:disabled { background: #e6eae7; color: #9ca99f; cursor: default; }
+    @media (max-width: 600px) { body { padding: 12px; } .demo-top { flex-direction: column; } }
+  </style>
+  <script src="demo.js" defer></script>
+  <script src="schedule.js" defer></script>
+  <script src="artwork.js" defer></script>
+  <script src="content.js" defer></script>
+</head>
+<body>
+  <main>
+    <div class="demo-top"><strong>MyKU Timetable</strong><span>ตัวอย่างส่วนขยาย · ข้อมูลสมมติ</span></div>
+    <p class="demo-note">เมื่อติดตั้ง ส่วนขยายจะอ่านตารางเรียนจากหน้า MyKU ที่คุณล็อกอินอยู่โดยอัตโนมัติ</p>
+    <div>
+      <div class="d-sm-inline">ภาคฤดูร้อน 2569</div>
+      <div class="demo-tabs"><div class="btn-group"><button type="button" class="btn-classSchedule active">ตารางเรียน</button><button type="button" class="btn-classSchedule2 inactive" disabled>สอบกลางภาค</button><button type="button" class="btn-classSchedule1 inactive" disabled>สอบปลายภาค</button></div></div>
+      <div class="demo-list row" id="demo-courses"></div>
+    </div>
+  </main>
+</body>
+</html>

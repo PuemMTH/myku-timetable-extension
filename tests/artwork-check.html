@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="th">
+<meta charset="utf-8">
+<title>Artwork regression check</title>
+<pre id="result">Running…</pre>
+<script src="../schedule.js"></script>
+<script src="../artwork.js"></script>
+<script>
+(async () => {
+  const assert = (condition, message) => { if (!condition) throw new Error(message); };
+  try {
+    const courses = [];
+    for (const [day, count] of [['mon', 2], ['thu', 3], ['fri', 4]]) {
+      for (let i = 0; i < count; i++) courses.push({ day, code: `012045${courses.length + 10}-66`, name: 'รายวิชาทดสอบ', english: 'A long course title that must yield space to its code and room', room: `E15-60${i}`, start: 540, end: 720, section: '1', teacher: 'Test' });
+    }
+    const svg = MyKUTimetableArtwork.create({ courses, semester: 'ภาคปลาย 2569', unread: 0, onCourse() {}, onDay() {} });
+    document.body.append(svg);
+    await document.fonts.ready;
+    assert(svg.getAttribute('viewBox') === '0 0 1600 800', '16:8 aspect ratio');
+    assert([...svg.querySelectorAll('.mkt-day-row')].every(row => row.getBBox().height === 76), 'equal weekday rows');
+    for (const course of courses) {
+      const card = svg.querySelector(`[data-code="${course.code}"]`);
+      const details = card.querySelector('.mkt-course-details');
+      assert(details?.textContent.includes(course.code), 'full course code is visible');
+      assert(details.textContent.includes(`ห้อง ${course.room}`), 'room is visible');
+      assert(!details.textContent.includes('…'), 'metadata is not truncated');
+      const a = card.querySelector('rect').getBBox(), b = details.getBBox();
+      assert(b.x >= a.x && b.x + b.width <= a.x + a.width, 'metadata fits horizontally');
+      assert(b.y >= a.y && b.y + b.height <= a.y + a.height, 'metadata fits vertically');
+      if (course.day !== 'mon') {
+        const title = card.querySelector('text:not(.mkt-course-details)').getBBox();
+        assert(title.x + title.width <= b.x, 'title leaves room for code and room');
+      }
+    }
+    const blob = await MyKUTimetableArtwork.toPNG(svg);
+    const image = await createImageBitmap(blob);
+    assert(image.width === 3200 && image.height === 1600, 'export is 3200x1600');
+    image.close();
+    document.documentElement.dataset.result = 'passed';
+    document.getElementById('result').textContent = 'PASS: 2/3/4 overlapping courses show full codes and rooms, text fits, equal rows, PNG 3200x1600.';
+  } catch (error) {
+    document.documentElement.dataset.result = 'failed';
+    document.getElementById('result').textContent = `FAIL: ${error.message}`;
+  }
+})();
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MyKU Timetable ส่วนขยายตารางเรียนพาสเทล พร้อมรหัสวิชา ห้องเรียน และดาวน์โหลดภาพ PNG 16:8">
+  <meta name="theme-color" content="#fcf2fa">
+  <title>MyKU Timetable · ตารางเรียนที่น่ารักขึ้นอีกนิด</title>
+  <link rel="stylesheet" href="install-page.css">
+  <script src="install-page.js" defer></script>
+</head>
+<body>
+  <main>
+    <nav aria-label="เมนูหลัก"><a class="brand" href="./">♡ MYKU TIMETABLE</a><a href="https://github.com/PuemMTH/myku-timetable-extension">GitHub ↗</a></nav>
+    <header>
+      <span class="pill">CHROME EXTENSION · v1.2.1</span>
+      <h1>ตารางเรียนที่น่ารัก<br>ขึ้นอีกนิด<span class="sparkle"> ✧</span></h1>
+      <p class="intro">ดูสัปดาห์ของคุณในโทนพาสเทล พร้อมรหัสวิชาและห้องเรียน<br>บันทึกเป็นภาพ 16:8 ได้ในคลิกเดียว และยังเก็บตารางเดิมของ MyKU ไว้</p>
+      <div class="actions"><a class="button primary" href="https://github.com/PuemMTH/myku-timetable-extension/releases/latest/download/myku-timetable-extension.zip">↓ ดาวน์โหลดส่วนขยาย ZIP</a><a class="button" href="demo.html">ดูตัวอย่างก่อนติดตั้ง</a></div>
+      <p class="hint">แตก ZIP แล้วเลือก Load unpacked ใน Chrome · ยังไม่ได้เผยแพร่ใน Chrome Web Store</p>
+    </header>
+    <figure>
+      <img src="sample-timetable.png" width="3200" height="1600" alt="ตัวอย่างตารางเรียนพาสเทลลายกระต่าย พร้อมรหัสวิชาและห้องในคาบซ้อนกัน">
+      <figcaption>ภาพตัวอย่างใช้ข้อมูลสมมติ · PNG 3200 × 1600 · ทุกแถวสูงเท่ากัน</figcaption>
+    </figure>
+    <section class="features" aria-label="ความสามารถ">
+      <article><span>01 / YOUR WEEK</span><h2>มีแท็บเดิมอยู่ด้วย</h2><p>ตารางเรียน MyKU เดิมเป็นค่าเริ่มต้น เพิ่มแท็บรายสัปดาห์ไว้ข้างกัน</p></article>
+      <article><span>02 / ALL THE DETAILS</span><h2>วิชาชนกันก็อ่านได้</h2><p>แยกช่องย่อย พร้อมรหัสวิชาและห้อง คลิกชื่อวิชาหรือชื่อวันเพื่ออ่านรายละเอียดเต็ม</p></article>
+      <article><span>03 / KEEP A COPY</span><h2>ดาวน์โหลดเป็น PNG</h2><p>ภาพ 16:8 สีเดียวกับที่เห็นบนเว็บ สร้างในเครื่องของคุณ ไม่ส่งข้อมูลตารางออกไป</p></article>
+    </section>
+    <section class="installation" id="install">
+      <div><span class="eyebrow">A FEW LITTLE STEPS</span><h2>ติดตั้งครั้งแรก</h2><p>ใช้ได้กับ Chrome บนคอมพิวเตอร์ ไม่ต้อง build โปรแกรม</p></div>
+      <ol>
+        <li><strong>ดาวน์โหลดและแตก ZIP</strong><span>เก็บโฟลเดอร์ไว้ในที่ถาวร อย่าลบหรือย้ายหลังติดตั้ง</span></li>
+        <li><strong>เปิด <code>chrome://extensions</code></strong><span>วางที่อยู่ในแถบ URL ของ Chrome แล้วเปิด Developer mode</span><button class="small-button" type="button" data-copy="chrome://extensions">คัดลอกที่อยู่</button></li>
+        <li><strong>กด Load unpacked</strong><span>เลือกโฟลเดอร์ myku-timetable-extension ที่มีไฟล์ manifest.json</span></li>
+        <li><strong>รีเฟรชหน้า MyKU</strong><span>เปิดเมนูตารางเรียน/ตารางสอบ แล้วเลือกแท็บ “ตารางรายสัปดาห์”</span></li>
+      </ol>
+    </section>
+    <section class="script" aria-labelledby="script-title">
+      <div class="script-heading"><div><span class="eyebrow">FOR LINUX & macOS</span><h2 id="script-title">เตรียมโฟลเดอร์ด้วยสคริปต์ออนไลน์</h2></div><button class="small-button" type="button" data-copy="curl -fsSL https://PuemMTH.github.io/myku-timetable-extension/install.sh | bash">คัดลอกคำสั่ง</button></div>
+      <pre><code>curl -fsSL https://PuemMTH.github.io/myku-timetable-extension/install.sh | bash</code></pre>
+      <p>ต้องมี <code>curl</code> และ <code>python3</code> สคริปต์จะดาวน์โหลด Release ล่าสุด ตรวจ SHA-256 และเตรียมโฟลเดอร์ให้ จากนั้นกด <strong>Load unpacked</strong> ตามขั้นตอนด้านบนหนึ่งครั้ง หากอัปเดตรุ่นเดิมให้กด <strong>Reload</strong> ส่วนขยายแทน</p>
+      <p><a href="install.sh">อ่านหรือดาวน์โหลดสคริปต์</a> · Windows ใช้ ZIP และขั้นตอนติดตั้งด้านบนได้</p>
+      <p class="note">Chrome ไม่ให้เว็บหรือสคริปต์ทั่วไปติดตั้งส่วนขยายเองโดยข้ามขั้นตอนของเบราว์เซอร์ หากต้องการติดตั้งจากเว็บโดยตรง ต้องเผยแพร่ผ่าน Chrome Web Store <a href="https://developer.chrome.com/docs/extensions/how-to/distribute">อ่านข้อกำหนดของ Chrome ↗</a></p>
+    </section>
+    <p id="copy-status" role="status" aria-live="polite"></p>
+    <footer><span>ทำให้สัปดาห์เรียนมีสีสันขึ้นอีกนิด ♡</span><span><a href="https://github.com/PuemMTH/myku-timetable-extension">ซอร์สโค้ด</a> · <a href="https://github.com/PuemMTH/myku-timetable-extension/releases">ทุกรุ่น</a> · โปรเจกต์อิสระ ไม่ใช่ระบบทางการของ มก.</span></footer>
+  </main>
+</body>
+</html>

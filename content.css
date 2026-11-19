@@ -1,0 +1,48 @@
+[data-mkt-hidden] { display: none !important; }
+#mkt-timetable[hidden] { display: none !important; }
+.mkt-native-tabs { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; width: 100%; }
+.mkt-native-tabs > button { width: auto !important; min-width: 0; min-height: 36px; border-radius: 5px !important; white-space: nowrap; }
+.mkt-native-tabs .mkt-tab { appearance: none; border: 1px solid #cddbd1; background: #f1f5f2; color: #3f6350; padding: 6px 8px; font: inherit; font-size: 12px; cursor: pointer; }
+.mkt-native-tabs .mkt-tab:hover { background: #e3eee7; }
+.mkt-native-tabs .mkt-tab[aria-pressed="true"] { border-color: #c9afdb; background: #efe3f8; color: #705987; }
+.mkt-native-tabs.mkt-weekly-active > .btn-classSchedule { background: #edf1ee !important; color: #617368 !important; }
+.mkt-native-tabs > button:focus-visible { outline: 3px solid #0c7662; outline-offset: 2px; }
+#mkt-timetable {
+  color: #65526f; background: #fffbfd; border: 1px solid #eadde8;
+  border-radius: 22px; margin: 18px 0 24px; overflow: hidden;
+  font: 14px/1.5 "Noto Sans Thai", Tahoma, system-ui, sans-serif;
+  box-shadow: 0 8px 28px #a482aa12; text-align: left;
+}
+#mkt-timetable * { box-sizing: border-box; }
+#mkt-timetable .mkt-tools { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 22px; background: #fffafd; border-bottom: 1px solid #f0e5ed; }
+#mkt-timetable .mkt-tools strong { display: block; font-size: 14px; font-weight: 600; }
+#mkt-timetable .mkt-export-size { display: block; color: #aa91af; font-size: 11px; margin-top: 3px; }
+#mkt-timetable .mkt-button { appearance: none; border: 1px solid #dcc8e7; background: #f3e9fa; color: #74528a; font: inherit; font-size: 12px; font-weight: 600; border-radius: 18px; padding: 10px 16px; cursor: pointer; white-space: nowrap; }
+#mkt-timetable .mkt-button:hover { background: #eadbf4; }
+#mkt-timetable .mkt-button:disabled { opacity: .55; cursor: wait; }
+#mkt-timetable button:focus-visible, #mkt-timetable .mkt-scroll:focus-visible { outline: 3px solid #9471aa; outline-offset: -3px; }
+#mkt-timetable .mkt-scroll { overflow-x: auto; overscroll-behavior-x: contain; background: #fff7f6; }
+#mkt-timetable #mkt-artwork { display: block; width: 100%; height: auto; min-width: 1280px; aspect-ratio: 2 / 1; }
+#mkt-timetable .mkt-course, #mkt-timetable .mkt-day-label[role="button"] { cursor: pointer; }
+#mkt-timetable .mkt-course:hover > rect { stroke: #c49ccf; stroke-width: 2; }
+#mkt-timetable [role="button"]:focus-visible { outline: none; }
+#mkt-timetable [role="button"]:focus-visible > rect { stroke: #9471aa; stroke-width: 3; }
+#mkt-timetable .mkt-status { padding: 10px 22px; margin: 0; color: #a189a8; font-size: 11px; border-top: 1px solid #f0e5ed; }
+#mkt-timetable .mkt-dialog { width: min(480px, calc(100vw - 32px)); max-height: calc(100vh - 40px); overflow-y: auto; border: 1px solid #e5d4e4; border-radius: 22px; padding: 28px; color: #65526f; background: #fffbfd; font: inherit; box-shadow: 0 18px 90px #70557e30; }
+#mkt-timetable .mkt-dialog::backdrop { background: #58446460; }
+#mkt-timetable .mkt-dialog h3 { margin: 8px 0; font-size: 21px; color: inherit; }
+#mkt-timetable .mkt-eyebrow { margin: 0; color: #aa87b1; font-size: 11px; letter-spacing: 1px; }
+#mkt-timetable .mkt-muted { color: #a189a8; font-size: 13px; }
+#mkt-timetable .mkt-dialog dl { display: grid; grid-template-columns: 85px 1fr; gap: 12px; margin: 24px 0; }
+#mkt-timetable .mkt-dialog dt { font-weight: 400; color: #a189a8; }
+#mkt-timetable .mkt-dialog dd { margin: 0; overflow-wrap: anywhere; }
+#mkt-timetable .mkt-choice { appearance: none; display: block; width: 100%; border: 1px solid #eadde8; border-radius: 12px; padding: 12px; margin: 12px 0; background: #f8effa; color: #65526f; font: inherit; font-size: 13px; text-align: left; cursor: pointer; }
+#mkt-timetable .mkt-choice:hover { background: #f0e1f7; }
+@media (max-width: 600px) {
+  .mkt-native-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #mkt-timetable { border-radius: 16px; margin: 14px 0; }
+  #mkt-timetable .mkt-tools { padding: 14px; gap: 8px; flex-wrap: wrap; }
+  #mkt-timetable .mkt-tools strong { font-size: 12px; }
+  #mkt-timetable .mkt-button { padding: 9px 12px; font-size: 11px; }
+  #mkt-timetable .mkt-status::after { content: " · เลื่อนซ้าย–ขวาเพื่อดูตาราง"; }
+}

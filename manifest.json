@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "MyKU Timetable · ตารางเรียน",
+  "version": "1.2.1",
+  "description": "แสดงตารางเรียน MyKU แบบวัน–เวลา พร้อมสีประจำวิชา ห้องเรียน และผู้สอน",
+  "content_scripts": [
+    {
+      "matches": ["https://my.ku.th/myku/student/*"],
+      "js": ["schedule.js", "artwork.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
